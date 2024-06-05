@@ -4708,10 +4708,10 @@ docusaurus-lunr-search@^2.3.2:
     unified "^9.0.0"
     unist-util-is "^4.0.2"
 
-docusaurus-plugin-internaldocs-fb@1.16.2:
-  version "1.16.2"
-  resolved "https://registry.yarnpkg.com/docusaurus-plugin-internaldocs-fb/-/docusaurus-plugin-internaldocs-fb-1.16.2.tgz#00f8d52f2b2447545409073955f37ed28e6c1083"
-  integrity sha512-DqEiMuTG2qq0XsbKu1Jlv0oEINDvsN6D514zmuuppUF5WM8KUlOJdComuS+8JRoAMZhqCBoa7Id+J0AlyRdnJw==
+docusaurus-plugin-internaldocs-fb@1.17.0:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/docusaurus-plugin-internaldocs-fb/-/docusaurus-plugin-internaldocs-fb-1.17.0.tgz#b36d32178f6fd4a9e782b34545c64c08fa0b480e"
+  integrity sha512-E7G4WlImPKi0QeTvH7YDX17WxA22pTHM4k3bbmsj6FlqPJ5OI0cjb1IgWY58S1HqNp7Y2mDbD0lBsVEcQ9WOKg==
   dependencies:
     "@mdx-js/mdx" "^2.1.1"
     "@mdx-js/react" "^1.6.22"
