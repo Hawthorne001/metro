@@ -82,11 +82,15 @@ describe('Metro development server serves bundles via HTTP', () => {
     );
     await expect(object.asyncImportCJS).resolves.toMatchSnapshot();
     await expect(object.asyncImportESM).resolves.toMatchSnapshot();
+    await expect(object.asyncImportMaybeSyncCJS).resolves.toMatchSnapshot();
+    await expect(object.asyncImportMaybeSyncESM).resolves.toMatchSnapshot();
     expect(bundlesDownloaded).toEqual(
       new Set([
         '/import-export/index.bundle?platform=ios&dev=true&minify=false&lazy=true',
-        '/import-export/export-6.bundle?platform=ios&dev=true&minify=false&lazy=true&modulesOnly=true&runModule=false',
         '/import-export/export-5.bundle?platform=ios&dev=true&minify=false&lazy=true&modulesOnly=true&runModule=false',
+        '/import-export/export-6.bundle?platform=ios&dev=true&minify=false&lazy=true&modulesOnly=true&runModule=false',
+        '/import-export/export-7.bundle?platform=ios&dev=true&minify=false&lazy=true&modulesOnly=true&runModule=false',
+        '/import-export/export-8.bundle?platform=ios&dev=true&minify=false&lazy=true&modulesOnly=true&runModule=false',
       ]),
     );
   });
@@ -97,6 +101,8 @@ describe('Metro development server serves bundles via HTTP', () => {
     );
     await expect(object.asyncImportCJS).resolves.toMatchSnapshot();
     await expect(object.asyncImportESM).resolves.toMatchSnapshot();
+    await expect(object.asyncImportMaybeSyncCJS).toMatchSnapshot();
+    await expect(object.asyncImportMaybeSyncESM).toMatchSnapshot();
     expect(bundlesDownloaded).toEqual(
       new Set([
         '/import-export/index.bundle?platform=ios&dev=true&minify=false',
@@ -191,6 +197,21 @@ describe('Metro development server serves bundles via HTTP', () => {
       expect(await response.text()).not.toContain(
         await fs.promises.readFile(
           path.join(__dirname, '../basic_bundle/excluded_from_file_map.js'),
+          'utf8',
+        ),
+      );
+    });
+
+    test('requested with aggressive URL encoding /%5Bmetro-project%5D', async () => {
+      const response = await fetch(
+        'http://localhost:' +
+          config.server.port +
+          '/%5Bmetro-project%5D/Foo%2Ejs',
+      );
+      expect(response.status).toBe(200);
+      expect(await response.text()).toEqual(
+        await fs.promises.readFile(
+          path.join(__dirname, '../basic_bundle/Foo.js'),
           'utf8',
         ),
       );
