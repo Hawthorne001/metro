@@ -12,8 +12,8 @@
     "serve": "docusaurus serve"
   },
   "dependencies": {
-    "@docusaurus/core": "2.4.3",
-    "@docusaurus/preset-classic": "2.4.3",
+    "@docusaurus/core": "3.0.1",
+    "@docusaurus/preset-classic": "3.0.1",
     "classnames": "2.2.6",
     "docusaurus-plugin-internaldocs-fb": "1.16.2",
     "docusaurus-plugin-sass": "^0.2.1",
