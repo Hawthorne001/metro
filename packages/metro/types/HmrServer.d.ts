@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  * @noformat
- * @generated SignedSource<<ab4c245134631e14db114a9d49da79d1>>
+ * @generated SignedSource<<48bfe42125bd22a8329f95a30fa90b64>>
  *
  * This file was translated from Flow by scripts/generateTypeScriptDefinitions.js
  * Original file: packages/metro/src/HmrServer.js
@@ -18,24 +18,12 @@ import type {
   RevisionId,
   default as IncrementalBundler,
 } from './IncrementalBundler';
-import type {GraphOptions} from './shared/types';
-import type {ConfigT, RootPerfLogger} from 'metro-config';
-import type {
-  HmrErrorMessage,
-  HmrUpdateMessage,
-} from 'metro-runtime/src/modules/types';
+import type {ConfigT} from 'metro-config';
 
 export type Client = {
   optedIntoHMR: boolean;
   revisionIds: Array<RevisionId>;
   readonly sendFn: ($$PARAM_0$$: string) => void;
-};
-type ClientGroup = {
-  readonly clients: Set<Client>;
-  clientUrl: URL;
-  revisionId: RevisionId;
-  readonly unlisten: () => void;
-  readonly graphOptions: GraphOptions;
 };
 /**
  * The HmrServer (Hot Module Reloading) implements a lightweight interface
@@ -47,10 +35,6 @@ type ClientGroup = {
  * `onClientConnect`, `onClientDisconnect` and `onClientError` methods).
  */
 declare class HmrServer<TClient extends Client> {
-  _config: ConfigT;
-  _bundler: IncrementalBundler;
-  _createModuleId: (path: string) => number;
-  _clientGroups: Map<RevisionId, ClientGroup>;
   constructor(
     bundler: IncrementalBundler,
     createModuleId: (path: string) => number,
@@ -60,11 +44,6 @@ declare class HmrServer<TClient extends Client> {
     requestUrl: string,
     sendFn: (data: string) => void,
   ) => Promise<Client>;
-  _registerEntryPoint(
-    client: Client,
-    originalRequestUrl: string,
-    sendFn: (data: string) => void,
-  ): Promise<void>;
   onClientMessage: (
     client: TClient,
     message: string | Buffer | ArrayBuffer | Array<Buffer>,
@@ -72,27 +51,5 @@ declare class HmrServer<TClient extends Client> {
   ) => Promise<void>;
   onClientError: (client: TClient, e: Error) => void;
   onClientDisconnect: (client: TClient) => void;
-  _handleFileChange(
-    group: ClientGroup,
-    options: {isInitialUpdate: boolean},
-    changeEvent:
-      | null
-      | undefined
-      | {
-          readonly logger: null | undefined | RootPerfLogger;
-          readonly changeId?: string;
-        },
-  ): Promise<void>;
-  _prepareMessage(
-    group: ClientGroup,
-    options: {isInitialUpdate: boolean},
-    changeEvent:
-      | null
-      | undefined
-      | {
-          readonly logger: null | undefined | RootPerfLogger;
-          readonly changeId?: string;
-        },
-  ): Promise<HmrUpdateMessage | HmrErrorMessage>;
 }
 export default HmrServer;

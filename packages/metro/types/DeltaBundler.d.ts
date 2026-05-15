@@ -6,7 +6,7 @@
  *
  * @noformat
  * @oncall react_native
- * @generated SignedSource<<db564db653a99b07f3ad7585b2bed707>>
+ * @generated SignedSource<<4392a52adb92ee60889197cf5c38516d>>
  *
  * This file was translated from Flow by scripts/generateTypeScriptDefinitions.js
  * Original file: packages/metro/src/DeltaBundler.js
@@ -23,8 +23,6 @@ import type {
   ReadOnlyGraph,
 } from './DeltaBundler/types';
 import type EventEmitter from 'events';
-
-import DeltaCalculator from './DeltaBundler/DeltaCalculator';
 
 export type {
   DeltaResult,
@@ -45,8 +43,6 @@ export type {
  * `clientId` param (which maps a client to a specific delta transformer).
  */
 declare class DeltaBundler<T = MixedOutput> {
-  _changeEventSource: EventEmitter;
-  _deltaCalculators: Map<Graph<T>, DeltaCalculator<T>>;
   constructor(changeEventSource: EventEmitter);
   end(): void;
   getDependencies(

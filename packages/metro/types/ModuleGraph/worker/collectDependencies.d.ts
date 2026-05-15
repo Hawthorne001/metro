@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  * @noformat
- * @generated SignedSource<<ab2d1203f736c3032c6b9d15cc74680b>>
+ * @generated SignedSource<<f072a86187014259ece27c02d9abfd6a>>
  *
  * This file was translated from Flow by scripts/generateTypeScriptDefinitions.js
  * Original file: packages/metro/src/ModuleGraph/worker/collectDependencies.js
@@ -132,7 +132,6 @@ export type ImportQualifier = Readonly<{
   contextParams?: RequireContextParams;
 }>;
 declare class DependencyRegistry {
-  _dependencies: Map<string, InternalDependency>;
   registerDependency(qualifier: ImportQualifier): InternalDependency;
   getDependencies(): Array<InternalDependency>;
 }

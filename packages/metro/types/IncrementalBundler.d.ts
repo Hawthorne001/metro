@@ -6,7 +6,7 @@
  *
  * @noformat
  * @oncall react_native
- * @generated SignedSource<<0ec72971869a882d97b381e3f1baa922>>
+ * @generated SignedSource<<7ce634e158aa8f2ac74e32940e9e97c1>>
  *
  * This file was translated from Flow by scripts/generateTypeScriptDefinitions.js
  * Original file: packages/metro/src/IncrementalBundler.js
@@ -47,11 +47,6 @@ export type IncrementalBundlerOptions = Readonly<{
   watch?: boolean;
 }>;
 declare class IncrementalBundler {
-  _config: ConfigT;
-  _bundler: Bundler;
-  _deltaBundler: DeltaBundler;
-  _revisionsById: Map<RevisionId, Promise<GraphRevision>>;
-  _revisionsByGraphId: Map<GraphId, Promise<GraphRevision>>;
   static revisionIdFromString: (str: string) => RevisionId;
   constructor(config: ConfigT, options?: IncrementalBundlerOptions);
   end(): Promise<void>;
@@ -95,9 +90,6 @@ declare class IncrementalBundler {
     reset: boolean,
   ): Promise<{delta: DeltaResult; revision: GraphRevision}>;
   endGraph(graphId: GraphId): Promise<void>;
-  _getAbsoluteEntryFiles(
-    entryFiles: ReadonlyArray<string>,
-  ): Promise<ReadonlyArray<string>>;
   ready(): Promise<void>;
 }
 export default IncrementalBundler;

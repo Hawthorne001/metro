@@ -6,7 +6,7 @@
  *
  * @noformat
  * @oncall react_native
- * @generated SignedSource<<26fabb3db2058dda9c2a6e56de4728ce>>
+ * @generated SignedSource<<f06808ae018ab95685d28a94a4c78bd9>>
  *
  * This file was translated from Flow by scripts/generateTypeScriptDefinitions.js
  * Original file: packages/metro-source-map/src/B64Builder.js
@@ -48,7 +48,5 @@ declare class B64Builder {
    * Returns the string representation of the mappings.
    */
   toString(): string;
-  _writeByte(byte: number): void;
-  _realloc(): void;
 }
 export default B64Builder;
